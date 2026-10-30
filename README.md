@@ -12,4 +12,11 @@ Next.js + TypeScript, Postgres + pgvector (Drizzle), Redis + BullMQ, Better Auth
 
 Нужно: Node (версия в `.nvmrc`), Docker (OrbStack или Docker Desktop).
 
-_Команды появятся по мере готовности этапа 0._
+```bash
+cp .env.example .env        # локальные значения по умолчанию
+docker compose up -d --wait # Postgres (pgvector) и Redis
+npm install
+npm run dev                 # http://localhost:3000
+```
+
+Остановить базы: `docker compose down` (данные сохраняются в volume).

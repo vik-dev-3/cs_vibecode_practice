@@ -49,6 +49,7 @@
 - **Тесты** обязательны на логику с правами доступа и деньгами.
 
 ## Команды
+- `docker compose up -d --wait` / `docker compose down` — локальные Postgres+pgvector и Redis
 - `npm run dev` — локальный сервер (http://localhost:3000)
 - `npm run lint` — ESLint
 - `npm run typecheck` — генерация типов роутов + `tsc --noEmit`
