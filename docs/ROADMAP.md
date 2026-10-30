@@ -3,13 +3,13 @@
 Каждый этап = ветка + PR + зелёный CI + деплой.
 
 ## 0. Фундамент
-- [ ] `git init`, `.gitignore` и `.env.example` до первого коммита
-- [ ] Приватный репозиторий на GitHub
-- [ ] `CLAUDE.md`, `README.md`, `docs/ROADMAP.md`, ADR по стеку
-- [ ] `.claude/settings.json` с запретом чтения `.env`
-- [ ] Скелет Next.js, TS strict, линтер
-- [ ] `.nvmrc` + `engines`
-- [ ] Docker Compose: Postgres+pgvector, Redis
+- [x] `git init`, `.gitignore` и `.env.example` до первого коммита
+- [x] Приватный репозиторий на GitHub
+- [x] `CLAUDE.md`, `README.md`, `docs/ROADMAP.md`, ADR по стеку
+- [x] `.claude/settings.json` с запретом чтения `.env`
+- [x] Скелет Next.js, TS strict, линтер
+- [x] `.nvmrc` + `engines`
+- [x] Docker Compose: Postgres+pgvector, Redis
 
 ## 1. CI и первый деплой
 - [ ] GitHub Actions: lint, typecheck, test

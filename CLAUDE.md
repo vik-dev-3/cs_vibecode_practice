@@ -24,6 +24,7 @@
 - Node зафиксирован (`.nvmrc` + `engines`), lockfile всегда в git
 
 ## Документация
+- [AGENTS.md](AGENTS.md) — правила от Next.js (генерируется `next dev`): перед кодом на Next смотреть доки в `node_modules/next/dist/docs/`.
 - `CLAUDE.md` — короткие правила; детали в `docs/`, сюда только ссылки. Для подпапок (например `worker/`) — свой `CLAUDE.md`.
 - `CLAUDE.local.md` — личные заметки пользователя (в `.gitignore`).
 - `README.md` — для людей: что это, как запустить.
@@ -48,4 +49,9 @@
 - **Тесты** обязательны на логику с правами доступа и деньгами.
 
 ## Команды
-_Заполним на этапе 0 (dev, lint, typecheck, test, db)._
+- `docker compose up -d --wait` / `docker compose down` — локальные Postgres+pgvector и Redis
+- `npm run dev` — локальный сервер (http://localhost:3000)
+- `npm run lint` — ESLint
+- `npm run typecheck` — генерация типов роутов + `tsc --noEmit`
+- `npm run build` — продакшн-сборка
+- Node 24 (`.nvmrc`), пакетный менеджер — npm
