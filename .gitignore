@@ -1,0 +1,24 @@
+# secrets: любые .env, кроме шаблона
+.env*
+!.env.example
+
+# личные заметки
+CLAUDE.local.md
+.claude/settings.local.json
+
+# зависимости и сборка
+node_modules/
+.next/
+out/
+build/
+dist/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+
+# логи и мусор ОС/IDE
+*.log
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
