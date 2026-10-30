@@ -1,6 +1,7 @@
 # secrets: любые .env, кроме шаблона
 .env*
 !.env.example
+*.pem
 
 # личные заметки
 CLAUDE.local.md
