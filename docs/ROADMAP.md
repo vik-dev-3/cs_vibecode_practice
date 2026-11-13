@@ -12,10 +12,10 @@
 - [x] Docker Compose: Postgres+pgvector, Redis
 
 ## 1. CI и первый деплой
-- [ ] GitHub Actions: lint, typecheck, test
-- [ ] Защита `main`
-- [ ] «Hello world» на Railway
-- [ ] Окружения staging и production
+- [x] GitHub Actions: lint, typecheck, test
+- [x] Защита `main`
+- [x] «Hello world» на Railway
+- [x] Окружения staging и production
 
 ## 2. База данных
 - [ ] Схема, миграции Drizzle, seed
