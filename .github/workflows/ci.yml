@@ -18,6 +18,24 @@ jobs:
   check:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    # Одноразовая база на время прогона: тот же образ, что в docker-compose.yml
+    services:
+      postgres:
+        image: pgvector/pgvector:0.8.7-pg18
+        env:
+          POSTGRES_USER: app
+          POSTGRES_PASSWORD: app
+          POSTGRES_DB: app
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U app -d app"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
+    env:
+      # Не секрет: база живёт только внутри этого прогона
+      DATABASE_URL: postgres://app:app@localhost:5432/app
     steps:
       # Экшены закреплены по SHA: тег можно перевесить, коммит — нет
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -26,6 +44,14 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+      # Миграции применяются на чистую базу, как на новом окружении
+      - run: npm run db:migrate
+      # Схему поменяли, а миграцию не сгенерировали — падаем
+      - name: Check for missing migrations
+        run: |
+          npm run db:generate
+          git add -N drizzle
+          git diff --exit-code drizzle
       - run: npm run lint
       - run: npm run typecheck
       - run: npm test
