@@ -16,8 +16,20 @@ Next.js + TypeScript, Postgres + pgvector (Drizzle), Redis + BullMQ, Better Auth
 cp .env.example .env        # локальные значения по умолчанию
 docker compose up -d --wait # Postgres (pgvector) и Redis
 npm install
+npm run db:migrate          # применить миграции к локальной базе
 npm run dev                 # http://localhost:3000
 ```
+
+Проверка: http://localhost:3000/api/health отвечает `{"status":"ok"}`, если база доступна.
+
+## Изменение схемы базы
+
+1. Поправить `src/db/schema.ts`.
+2. `npm run db:generate` — появится SQL-файл в `drizzle/`. **Прочитать его.**
+3. `npm run db:migrate` — применить локально.
+4. Закоммитить схему и миграцию вместе. На Railway миграция применится сама перед деплоем.
+
+Применённые миграции не правим — только новая поверх. Подробнее: [ADR 0006](docs/decisions/0006-migrations-flow.md).
 
 ## Конец рабочего дня
 
